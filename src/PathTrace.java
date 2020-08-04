@@ -1,8 +1,23 @@
+/**
+ * The type Path trace.
+ */
 public class PathTrace {
 
+    /**
+     * The Source x.
+     */
     int sourceX;
+    /**
+     * The Source y.
+     */
     int sourceY;
+    /**
+     * The Dest x.
+     */
     int destX;
+    /**
+     * The Dest y.
+     */
     int destY;
 
     /**

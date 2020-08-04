@@ -1,7 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Queen.
+ */
 public class Queen extends Piece {
+    /**
+     * Decide whether the destination pair is a possible position for the piece in question relative to the source
+     * position that it is starting from.
+     *
+     * @param sourceRow the row of the source tile
+     * @param sourceCol the column of the source tile
+     * @param destRow   the row of the destination tile
+     * @param destCol   the column of the destination tile
+     * @return whether the destination is a possible spot that we can go to from the source tile with this piece
+     */
     @Override
     public boolean tracePaths(int sourceRow, int sourceCol, int destRow, int destCol) {
         //Make a list of all the possible spots using the source row and column:
@@ -15,16 +28,34 @@ public class Queen extends Piece {
         return false;
     }
 
+    /**
+     * The Color of the queen
+     */
     String color;
 
+    /**
+     * Instantiates a new Queen.
+     *
+     * @param color the color of the queen that we are creating
+     */
     public Queen(String color) {
         this.color = color;
     }
 
+    /**
+     * A getter for the queen's color
+     *
+     * @return a string representing the color of the queen
+     */
     public String getColor() {
         return color;
     }
 
+    /**
+     * The overridden version of the toString method for queen chess pieces
+     *
+     * @return the string that is printed when we print a queen piece
+     */
     public String toString() {
         if (color.equals("White")) {
             System.out.print("WQ ");
@@ -34,6 +65,11 @@ public class Queen extends Piece {
         return "";
     }
 
+    /**
+     * A getter for the name of the queen. Used in the creation of the game board
+     *
+     * @return a string that represents the name of a queen piece
+     */
     public String getName() {
         switch (color) {
             case "White":
@@ -44,6 +80,13 @@ public class Queen extends Piece {
         return "";
     }
 
+    /**
+     * A method that finds all the positions that this queen can go to from the starting position
+     *
+     * @param sourceTile the tile that we are starting from
+     * @return a list of pairs that is the array list of all possible destination tiles for this piece
+     * starting from this source tile.
+     */
     @Override
     public List<Pair> inSight(Tile sourceTile) {
         List<Pair> possible = new ArrayList<>();
@@ -195,6 +238,12 @@ public class Queen extends Piece {
         return possible;
     }
 
+    /**
+     * The overridden version of the equals method to test whether two queens are equal
+     *
+     * @param o the other queen that we are comparing with
+     * @return whether the two queens in question are equal or not
+     */
     @Override
     public boolean equals(Object o) {
         if (o == this) {

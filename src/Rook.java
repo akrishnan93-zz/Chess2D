@@ -1,14 +1,34 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Rook.
+ */
 public class Rook extends Piece {
 
+    /**
+     * The Color of the rook
+     */
     String color;
 
+    /**
+     * Instantiates a new Rook.
+     *
+     * @param color the color
+     */
     public Rook(String color) {
         this.color = color;
     }
 
+    /**
+     * A method to find whether the destination tile exists in the possible method that we get from inSight() function
+     *
+     * @param sourceRow the source row
+     * @param sourceCol the source col
+     * @param destRow   the dest row
+     * @param destCol   the dest col
+     * @return a boolean of of whether the destination tile exists in the possible list
+     */
     @Override
     public boolean tracePaths(int sourceRow, int sourceCol, int destRow, int destCol) {
         //Make a list of all the possible spots using the source row and column:
@@ -22,10 +42,20 @@ public class Rook extends Piece {
         return false;
     }
 
+    /**
+     * A getter method for the color of the rook
+     *
+     * @return a string representing the color of the rook
+     */
     public String getColor() {
         return color;
     }
 
+    /**
+     * The overridden version of the toString method for rook objects
+     *
+     * @return a string representing what is returned when we print out a rook object
+     */
     public String toString() {
         if (color.equals("White")) {
             System.out.print("WR ");
@@ -35,6 +65,11 @@ public class Rook extends Piece {
         return "";
     }
 
+    /**
+     * Getter method for the name of a rook
+     *
+     * @return a string representing the name of a rook
+     */
     public String getName() {
         switch (color) {
             case "White":
@@ -45,6 +80,10 @@ public class Rook extends Piece {
         return "";
     }
 
+    /**
+     * @param sourceTile the source tile
+     * @return a list of all the possible tiles that we can go to with a rook from the source tile
+     */
     @Override
     public List<Pair> inSight(Tile sourceTile) {
 
@@ -121,6 +160,12 @@ public class Rook extends Piece {
         return possible;
     }
 
+    /**
+     * Overriden version of the equals method to see if two rook objects are equal
+     *
+     * @param o the other rook that we are comparing with
+     * @return a boolean representing whether the two rooks are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (o == this) {
